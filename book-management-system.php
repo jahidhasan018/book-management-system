@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Define Constants
+define( 'BMS_VERSION', '1.0' );
 define( 'BMS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'BMS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'BMS_BASENAME', plugin_basename( __FILE__ ) );

@@ -6,8 +6,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Create a class for the plugin
 class BookManagement{
+    // Version
+    public $version;
+
+    // Constructor
     public function __construct(){
+        $this->version = BMS_VERSION;
+
+        // Register admin menu 
         add_action( 'admin_menu', array( $this, 'bms_add_admin_menu' ) );
+
+        // Enqueue scripts and styles
+        add_action( 'admin_enqueue_scripts', array( $this, 'bms_enqueue_style_scripts' ) );
     }
 
     // Add admin menu method
@@ -90,5 +100,28 @@ class BookManagement{
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
         dbDelta( $sql );
+    }
+
+    // Enqueue scripts and styles method
+    public function bms_enqueue_style_scripts(){
+        // get current screen
+        $screen = get_current_screen();
+        $allowed_screens = array(
+            'toplevel_page_book-management',
+            'book-management_page_add-new-book',
+            'book-management_page_bms-settings',
+            'plugins'
+        );
+        var_dump($screen->id);
+        // check if the current screen is in the allowed screens
+        if( ! in_array( $screen->id, $allowed_screens ) ){
+            return;
+        }
+
+        // Css
+        wp_enqueue_style( 'bms-style', BMS_PLUGIN_URL . "assets/css/style.css", array(), $this->version, 'all' );
+
+        // Js
+        wp_enqueue_script( 'bms-script', BMS_PLUGIN_URL . "assets/js/script.js", array('jquery'), $this->version, false );
     }
 }
