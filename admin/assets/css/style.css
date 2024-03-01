@@ -1,0 +1,68 @@
+/* This is BMS Styelsheet */
+
+.bms-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bms-container .form-group {
+    margin-bottom: 20px;
+}
+
+.bms-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bms-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.bms-container .btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.bms-container .btn:hover {
+    background-color: #0056b3;
+}
+
+.bms-container #btn-upload-cover {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-bottom: 13px;
+}
+
+#frm-add-book label.error {
+    color: red;
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+
+#save-response {
+    background: green;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+}

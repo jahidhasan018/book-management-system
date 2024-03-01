@@ -74,7 +74,9 @@ class BookManagement{
 
     // Add new book page callback method
     public function bms_add_new_book_callback(){
-        echo '<h1>' . get_admin_page_title() . '</h1>';
+        ob_start();
+        require_once BMS_PLUGIN_DIR . 'admin/pages/add-new-book.php';
+        echo ob_get_clean();
     }
 
     // Settings page callback method
@@ -112,16 +114,16 @@ class BookManagement{
             'book-management_page_bms-settings',
             'plugins'
         );
-        var_dump($screen->id);
+
         // check if the current screen is in the allowed screens
         if( ! in_array( $screen->id, $allowed_screens ) ){
             return;
         }
 
         // Css
-        wp_enqueue_style( 'bms-style', BMS_PLUGIN_URL . "assets/css/style.css", array(), $this->version, 'all' );
+        wp_enqueue_style( 'bms-style', BMS_PLUGIN_URL . "admin/assets/css/style.css", array(), $this->version, 'all' );
 
         // Js
-        wp_enqueue_script( 'bms-script', BMS_PLUGIN_URL . "assets/js/script.js", array('jquery'), $this->version, false );
+        wp_enqueue_script( 'bms-script', BMS_PLUGIN_URL . "admin/assets/js/script.js", array('jquery'), $this->version, false );
     }
 }

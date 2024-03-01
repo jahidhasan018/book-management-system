@@ -2,7 +2,7 @@
 
     $(document).ready(function () {
         
-        // On click plugin deactivation button on plugin list page
+        // Show confirmation On click plugin deactivation button on plugin list page
         $(document).on('click', '#deactivate-book-management-system', function (e) {
             e.preventDefault();
             
